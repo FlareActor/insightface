@@ -419,6 +419,7 @@ def train_net(args):
     save_step = [0]
     if len(args.lr_steps)==0:
       lr_steps = [40000, 60000, 80000]
+      # Margin penalty based losses need more training steps
       if args.loss_type>=1 and args.loss_type<=7:
         lr_steps = [100000, 140000, 160000]
       p = 512.0/args.batch_size
